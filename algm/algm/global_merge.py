@@ -1,9 +1,5 @@
-
-# --------------------------------------------------------
-
 import math
 from typing import Callable, Tuple
-
 import torch
 
 

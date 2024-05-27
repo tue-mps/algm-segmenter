@@ -1,33 +1,12 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-# --------------------------------------------------------
 
 import math
 from typing import Callable, Tuple
 
 import torch
-
-
-def do_nothing(x, mode=None):
-    return x
-
-
-
-import numpy as np
-import math
-import torch
 import torch.nn
 import torch.nn.functional as F
 from einops import rearrange
-
-from PIL import Image
-from skimage.feature.texture import graycoprops, graycomatrix
-import matplotlib
-import matplotlib.pyplot as plt
-import torchvision
+import numpy as np
 
 
 
@@ -140,10 +119,7 @@ def conditional_pooling(
 def merge_wavg(
     merge: Callable, x: torch.Tensor, size: torch.Tensor = None
 ) -> Tuple[torch.Tensor, torch.Tensor]:
-    """
-    Applies the merge function by taking a weighted average based on token size.
-    Returns the merged tensor and the new token sizes.
-    """
+    
     if size is None:
         size = torch.ones_like(x[..., 0, None])
 
@@ -157,10 +133,7 @@ def merge_wavg(
 def merge_source(
     merge: Callable, x: torch.Tensor, source: torch.Tensor = None
 ) -> torch.Tensor:
-    """
-    For source tracking. Source is an adjacency matrix between the initial tokens and final merged groups.
-    x is used to find out how many tokens there are in case the source is None.
-    """
+
     if source is None:
         n, t, _ = x.shape
         source = torch.eye(t, device=x.device)[None, ...].expand(n, t, t)

@@ -1,18 +1,7 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-# --------------------------------------------------------
-# References:
-# timm: https://github.com/rwightman/pytorch-image-models/tree/master/timm
-# --------------------------------------------------------
-
-
 from typing import Tuple
 import math
 import torch
-# from timm.models.vision_transformer import Attention, Block, VisionTransformer
+
 from segm.model import segmenter, blocks, vit
 from segm.model.blocks import Block, Attention
 from segm.model.segmenter import Segmenter 
@@ -86,6 +75,7 @@ class TurboAttention(Attention):
         self, x: torch.Tensor,size: torch.Tensor = None
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         # Note: this is copied from timm.models.vision_transformer.Attention with modifications.
+        # we do not change anything here, and do not use  q.mean(1)
         B, N, C = x.shape
         
         qkv = (
