@@ -245,7 +245,7 @@ Segmenter models with ViT backbone:
     <td>53.0</td>
     <td>172</td>
     <td>32.1</td>
-    <td><a href="https://drive.google.com/file/d/1C2zz2_S3ozUo0Jh7u1fU8UIqdweRp-Qr/view?usp=sharing">model</a></td>
+    <td><a href="https://drive.google.com/file/d/1lrs0frcaDFqirq-A6qCDDk4ogO3232Y4/view?usp=sharing">model</a></td>
     <td><a href="https://drive.google.com/file/d/1bkN0jSsAQ5XSnygWKYUJEeT0NkdKOlQA/view?usp=sharing">config</a></td>
 </tr>
 <tr>
